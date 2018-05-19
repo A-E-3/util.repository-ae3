@@ -17,7 +17,7 @@ async gitSync "ae3/ae3-install-utility/"	           "git@github.com:A-E-3/ae3-in
 # async gitSync "myx/clean-jdbc.util/"  "git@github.com:myx/clean-jdbc.util.git"
 # async gitSync "myx/clean-yaumnrc/"  "git@github.com:myx/clean-yaumnrc.git"
 
+wait
+
 INF="$APP/source/ae3/util.repository-ae3/data/repository/repository.inf"
 ( set -e ; echo "# copied from $INF at `date`" ; cat "$INF" ) > "$APP/source/ae3/repository.inf"
-
-wait
