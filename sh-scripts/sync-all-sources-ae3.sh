@@ -9,13 +9,13 @@ fi
 
 . "$APP/source/myx/util.repository-myx/sh-lib/syncing.sh.include"
 
-async gitSync "ae3/util.repository-ae3/"	           "git@github.com:A-E-3/util.repository-ae3.git"
+async -2 gitSync "ae3/util.repository-ae3/"	           "git@github.com:A-E-3/util.repository-ae3.git"
 
-async gitSync "ae3/ae3-install-utility/"	           "git@github.com:A-E-3/ae3-install-utility.git"
+async -2 gitSync "ae3/ae3-install-utility/"	           "git@github.com:A-E-3/ae3-install-utility.git"
 
-# async gitSync "myx/clean-boot/"  "git@github.com:myx/clean-boot.git"
-# async gitSync "myx/clean-jdbc.util/"  "git@github.com:myx/clean-jdbc.util.git"
-# async gitSync "myx/clean-yaumnrc/"  "git@github.com:myx/clean-yaumnrc.git"
+# async -2 gitSync "myx/clean-boot/"  "git@github.com:myx/clean-boot.git"
+# async -2 gitSync "myx/clean-jdbc.util/"  "git@github.com:myx/clean-jdbc.util.git"
+# async -2 gitSync "myx/clean-yaumnrc/"  "git@github.com:myx/clean-yaumnrc.git"
 
 wait
 
