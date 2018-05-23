@@ -7,18 +7,16 @@ if [ -z "$APP" ] ; then
 	[ -d "$APP/source" ] || ( echo "expecting 'source' directory." >&2 && exit 1 )
 fi
 
-[ -f "$APP/source/myx/util.repository-myx/sh-lib/syncing.sh.include" ] /
-	|| (myx.common lib/gitCloneSync "$APP/source/myx/util.repository-myx" "git@github.com:myx/util.repository-myx.git")
-	
-. "$APP/source/myx/util.repository-myx/sh-lib/syncing.sh.include"
+. "`myx.common which lib/async`"
+. "`myx.common which lib/gitCloneSync`"
 
-async -2 gitSync "ae3/util.repository-ae3/"	           "git@github.com:A-E-3/util.repository-ae3.git"
+async(){
+	Async -2 GitCloneSync $@
+}
 
-async -2 gitSync "ae3/ae3-install-utility/"	           "git@github.com:A-E-3/ae3-install-utility.git"
+async "ae3/util.repository-ae3/"	           "git@github.com:A-E-3/util.repository-ae3.git"
 
-# async -2 gitSync "myx/clean-boot/"  "git@github.com:myx/clean-boot.git"
-# async -2 gitSync "myx/clean-jdbc.util/"  "git@github.com:myx/clean-jdbc.util.git"
-# async -2 gitSync "myx/clean-yaumnrc/"  "git@github.com:myx/clean-yaumnrc.git"
+async "ae3/ae3-install-utility/"	           "git@github.com:A-E-3/ae3-install-utility.git"
 
 wait
 
