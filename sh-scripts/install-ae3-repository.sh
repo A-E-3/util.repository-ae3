@@ -37,9 +37,9 @@ done
 ###########################################################
 echo "Installing AE3 repository into: $TGT_APP_PATH"
 
-export APP="$TGT_APP_PATH"
+export MMDAPP="$TGT_APP_PATH"
 
-myx.common lib/gitCloneSync "$APP/source/ae3/util.repository-ae3" "git@github.com:A-E-3/util.repository-ae3.git"
+myx.common lib/gitCloneSync "$MMDAPP/source/ae3/util.repository-ae3" "git@github.com:A-E-3/util.repository-ae3.git"
 
 ############
 echo "Done."
