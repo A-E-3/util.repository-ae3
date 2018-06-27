@@ -14,9 +14,13 @@ async(){
 	Async -2 GitCloneSync "$MMDAPP/source/$@"
 }
 
-async "ae3/util.repository-ae3/"	           "git@github.com:A-E-3/util.repository-ae3.git"
+async "ae3/util.repository-ae3/"				"git@github.com:A-E-3/util.repository-ae3.git"
 
-async "ae3/ae3-install-utility/"	           "git@github.com:A-E-3/ae3-install-utility.git"
+async "ae3/ae3-install-utility/"				"git@github.com:A-E-3/ae3-install-utility.git"
+
+async "ae3/ae3.api/"	 						"git@github.com:A-E-3/ae3.api.git"
+async "ae3/ae3.sdk/"	 						"git@github.com:A-E-3/ae3.sdk.git"
+
 
 wait
 
