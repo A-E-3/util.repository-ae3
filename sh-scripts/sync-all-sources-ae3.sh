@@ -21,6 +21,11 @@ async "ae3/ae3-install-utility/"				"git@github.com:A-E-3/ae3-install-utility.gi
 async "ae3/ae3.api/"	 						"git@github.com:A-E-3/ae3.api.git"
 async "ae3/ae3.sdk/"	 						"git@github.com:A-E-3/ae3.sdk.git"
 
+async "ae3/ae3-plug-iface-logger/"				"git@github.com:A-E-3/ae3-plug-iface-logger.git"
+async "ae3/ae3-plug-iface-ssh/"					"git@github.com:A-E-3/ae3-plug-iface-ssh.git"
+
+async "ae3/ae3.sdk-lang.acm-tpl/"				"git@github.com:A-E-3/ae3.sdk-lang.acm-tpl.git"
+
 
 wait
 
