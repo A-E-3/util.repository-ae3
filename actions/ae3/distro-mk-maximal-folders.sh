@@ -15,5 +15,5 @@ MakePrepareDistro
 ListPackageFiles --deep --distro myx --distro ae3 --distro ndm --preset maximal \
 	ae3/ae3.web \
 	myx/ae3.web.myx-local \
-	ndm/com.ndmsystems.ndls \
-	ndm/com.ndmsystems.ndss
+	ndm/cloud-ndxs/ndss-ae3-service \
+	ndm/cloud-ndxs/ndss-ae3-service

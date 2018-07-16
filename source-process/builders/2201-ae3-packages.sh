@@ -13,8 +13,7 @@ MakeCachedProjectAe3Packages(){
 	local DIR="$MDSC_SOURCE/$PKG"
 	local SRC="$DIR/ae3-packages"
 	if test ! -d "$SRC" ; then
-		echo "Project doesn't have ae3-packages" >&2
-		exit 1
+		echo "Project doesn't have ae3-packages" >&2 ; return 1
 	fi
 	
 	local AE3PKGS="`find "$SRC" -mindepth 1 -maxdepth 1 -type d | sort`"
@@ -37,7 +36,7 @@ MakeCachedProjectAe3Packages(){
 
 MakeChangedAe3Packages(){
 	for PKG in $( ListChangedSourceProjects ) ; do
-#		if test ! -z "$( ListProjectProvides "$PKG" "build-prepare" | grep -e "^ae3-packages$" )" ; then
+#		if test ! -z "$( ListProjectProvides "$PKG" "source-process" | grep -e "^ae3-packages$" )" ; then
 			local CHECKDIR="$MDSC_SOURCE/$PKG/ae3-packages"
 			if test -d "$CHECKDIR" ; then
 				Async -2 MakeCachedProjectAe3Packages "$PKG"
