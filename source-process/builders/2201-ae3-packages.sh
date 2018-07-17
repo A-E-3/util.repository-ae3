@@ -12,12 +12,12 @@ MakeCachedProjectAe3Packages(){
 
 	local DIR="$MDSC_SOURCE/$PKG"
 	local SRC="$DIR/ae3-packages"
-	if test ! -d "$SRC" ; then
+	if [ ! -d "$SRC" ] ; then
 		echo "Project doesn't have ae3-packages" >&2 ; return 1
 	fi
 	
 	local AE3PKGS="`find "$SRC" -mindepth 1 -maxdepth 1 -type d | sort`"
-	if test -z "$AE3PKGS" ; then
+	if [ -z "$AE3PKGS" ] ; then
 		return 0
 	fi
 	
