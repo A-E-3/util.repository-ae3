@@ -12,6 +12,7 @@ fi
 
 async(){
 	Async -2 GitCloneSync "$MMDAPP/source/$@"
+	# Async -3 myx.common lib/gitCloneSync "$MMDAPP/source/$@"
 }
 
 async "ae3/util.repository-ae3/"				"git@github.com:A-E-3/util.repository-ae3.git"
