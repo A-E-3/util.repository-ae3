@@ -25,6 +25,7 @@ MakeCachedProjectAe3Packages(){
 	for AE3PKG in $AE3PKGS ; do
 		if test -f "$AE3PKG/package.json" ; then
 			echo "tarring: $AE3PKG..." >&2
+			mkdir -p "$MDSC_OUTPUT/$projectName"
 			( cd "$AE3PKG" ; Async "`basename "$AE3PKG"`" tar -pczv -f "$MDSC_OUTPUT/$projectName/`basename "$AE3PKG"`.tar.gz" * ; wait ) &
 		else
 			echo "skipping: $AE3PKG, no package.json" >&2
