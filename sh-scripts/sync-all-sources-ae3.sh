@@ -38,6 +38,8 @@ wait
 async "ae3/ae3.pkg.net.ndm.client/"				"git@github.com:A-E-3/ae3.pkg.net.ndm.client.git"
 
 
+async "ae3/ae3.dev.tgt.xml"						"git@github.com:A-E-3/ae3.dev.tgt.xml.git"
+
 wait
 
 INF="$MMDAPP/source/ae3/util.repository-ae3/data/repository/repository.inf"
