@@ -8,11 +8,11 @@ if [ -z "$MMDAPP" ] ; then
 fi
 
 . "`myx.common which lib/async`"
-. "`myx.common which lib/gitCloneSync`"
+. "`myx.common which git/cloneSync`"
 
 async(){
 	Async -2 GitCloneSync "$MMDAPP/source/$@"
-	# Async -3 myx.common lib/gitCloneSync "$MMDAPP/source/$@"
+	# Async -3 myx.common git/cloneSync "$MMDAPP/source/$@"
 }
 
 async "ae3/util.repository-ae3/"				"git@github.com:A-E-3/util.repository-ae3.git"
