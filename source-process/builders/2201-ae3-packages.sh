@@ -37,7 +37,7 @@ MakeCachedProjectAe3Packages(){
 
 MakeChangedAe3Packages(){
 	for projectName in $( ListChangedSourceProjects ) ; do
-#		if test ! -z "$( ListProjectProvides "$projectName" "source-process" | grep -e "^ae3-packages$" )" ; then
+#		if test ! -z "$( ListProjectProvides "$projectName" --filter "source-process" | grep -e "^ae3-packages$" )" ; then
 			local CHECKDIR="$MDSC_SOURCE/$projectName/ae3-packages"
 			if test -d "$CHECKDIR" ; then
 				Async -2 MakeCachedProjectAe3Packages "$projectName"
