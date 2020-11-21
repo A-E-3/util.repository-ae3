@@ -1,6 +1,3 @@
-Require ListChangedSourceProjects
-Require ListProjectProvides
-
 MDSC_SOURCE="${MDSC_SOURCE:-$MMDAPP/cache/sources}"
 MDSC_OUTPUT="${MDSC_OUTPUT:-$MMDAPP/output/distro}"
 
@@ -35,16 +32,13 @@ MakeCachedProjectAe3Packages(){
 	echo "done."
 }
 
-MakeChangedAe3Packages(){
-	for projectName in $( ListChangedSourceProjects ) ; do
-#		if test ! -z "$( ListProjectProvides "$projectName" --print-provides-only --filter-and-cut "source-process" | grep -e "^ae3-packages$" )" ; then
-			local CHECKDIR="$MDSC_SOURCE/$projectName/ae3-packages"
-			if test -d "$CHECKDIR" ; then
-				Async -2 MakeCachedProjectAe3Packages "$projectName"
-				wait
-			fi
-#		fi
-	done
-}
-
-MakeChangedAe3Packages
+Require ListDistroProvides
+ListDistroProvides --select-changed --filter-and-cut "source-process" | grep -e " ae3-packages$" \
+| cut -d" " -f1 | while read -r projectName ; do
+	if [ -d "$MDSC_SOURCE/$projectName/ae3-packages" ] ; then
+		Async -2 MakeCachedProjectAe3Packages "$projectName"
+		wait
+	else
+		echo "skipping: $projectName, no ae3-packages folder" >&2
+	fi
+done
