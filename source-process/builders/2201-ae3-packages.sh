@@ -4,13 +4,13 @@ MDSC_OUTPUT="${MDSC_OUTPUT:-$MMDAPP/output/distro}"
 MakeCachedProjectAe3Packages(){
 	local projectName="$1"
 	if [ -z "$projectName" ] ; then
-		echo "MakeCachedProjectAe3Packages: 'projectName' argument is required!" >&2 ; exit 1
+		echo "ERROR: MakeCachedProjectAe3Packages: 'projectName' argument is required!" >&2 ; exit 1
 	fi
 
 	local DIR="$MDSC_SOURCE/$projectName"
 	local SRC="$DIR/ae3-packages"
 	if [ ! -d "$SRC" ] ; then
-		echo "Project doesn't have ae3-packages" >&2 ; return 1
+		echo "ERROR: Project doesn't have ae3-packages" >&2 ; return 1
 	fi
 	
 	local AE3PKGS="`find "$SRC" -mindepth 1 -maxdepth 1 -type d | sort`"
