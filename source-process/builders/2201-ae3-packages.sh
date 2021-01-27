@@ -1,6 +1,3 @@
-MDSC_SOURCE="${MDSC_SOURCE:-$MMDAPP/cache/sources}"
-MDSC_OUTPUT="${MDSC_OUTPUT:-$MMDAPP/output/distro}"
-
 MakeCachedProjectAe3Packages(){
 	local MDSC_SOURCE="${MDSC_SOURCE:-$MMDAPP/cached/sources}"
 	local MDSC_OUTPUT="${MDSC_OUTPUT:-$MMDAPP/output/distro}"
