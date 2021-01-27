@@ -2,6 +2,9 @@ MDSC_SOURCE="${MDSC_SOURCE:-$MMDAPP/cache/sources}"
 MDSC_OUTPUT="${MDSC_OUTPUT:-$MMDAPP/output/distro}"
 
 MakeCachedProjectAe3Packages(){
+	local MDSC_SOURCE="${MDSC_SOURCE:-$MMDAPP/cached/sources}"
+	local MDSC_OUTPUT="${MDSC_OUTPUT:-$MMDAPP/output/distro}"
+	
 	local projectName="$1"
 	if [ -z "$projectName" ] ; then
 		echo "ERROR: MakeCachedProjectAe3Packages: 'projectName' argument is required!" >&2 ; exit 1
