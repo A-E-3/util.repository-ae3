@@ -30,6 +30,7 @@ async "ae3/ae3-plug-iface-logger/"				"git@github.com:A-E-3/ae3-plug-iface-logge
 async "ae3/ae3-plug-iface-ssh/"					"git@github.com:A-E-3/ae3-plug-iface-ssh.git"
 
 async "ae3/ae3.sdk-lang.acm-tpl/"				"git@github.com:A-E-3/ae3.sdk-lang.acm-tpl.git"
+async "ae3/ae3.sys.pkg.base/"					"git@github.com:A-E-3/ae3.sys.pkg.base.git"
 
 async "ae3/ae3.pkg.tgt.xml"						"git@github.com:A-E-3/ae3.pkg.tgt.xml.git"
 
