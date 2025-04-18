@@ -35,9 +35,12 @@ async "ae3/ae3.sys.pkg.base/"					"git@github.com:A-E-3/ae3.sys.pkg.base.git"
 async "ae3/ae3.sys.pkg.i3.net/"					"git@github.com:A-E-3/ae3.sys.pkg.i3.net.git"
 async "ae3/ae3.sys.pkg.i3.web/"					"git@github.com:A-E-3/ae3.sys.pkg.i3.web.git"
 
-async "ae3/ae3.pkg.tgt.xml"						"git@github.com:A-E-3/ae3.pkg.tgt.xml.git"
+async "ae3/ae3.sys.pkg.l2.tgt.xml"				"git@github.com:A-E-3/ae3.sys.pkg.l2.tgt.xml.git"
 
 wait
+
+async "ae3/ae3.sys.pkg.s4"						"git@github.com:A-E-3/ae3.sys.pkg.s4.git"
+async "ae3/ae3.sys.pkg.s4.lcl.bdbje"			"git@github.com:A-E-3/ae3.sys.pkg.s4.lcl.bdbje.git"
 
 async "ae3/ae3.pkg.net.ndm.client/"				"git@github.com:A-E-3/ae3.pkg.net.ndm.client.git"
 
