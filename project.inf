@@ -3,7 +3,7 @@ Name: util.repository-ae3
 Info: Repository actions package (with repository installer)
 Provides: ae3/util.repository-ae3 ae3/actions:actions 
 Declares: \
-	distro-image-sync:source-prepare-pull:repo:ae3/util.repository-ae3:git@github.com:ae3/util.repository-ae3.git \
+	distro-image-sync:source-prepare-pull:repo:ae3/util.repository-ae3::git@github.com:ae3/util.repository-ae3.git \
 	distro-image-sync:source-prepare-pull:exec:.:sh-scripts/sync-all-sources-ae3.sh \
 	distro-repository-sync:sh-scripts/sync-all-sources-ae3.sh \
 
