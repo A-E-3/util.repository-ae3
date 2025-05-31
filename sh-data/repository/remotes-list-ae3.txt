@@ -1,0 +1,33 @@
+
+ae3/util.repository-ae3/				git@github.com:A-E-3/util.repository-ae3.git
+
+ae3/ae3-install-utility/				git@github.com:A-E-3/ae3-install-utility.git
+
+
+
+ae3/ae3.api/	 						git@github.com:A-E-3/ae3.api.git
+ae3/ae3.sdk/	 						git@github.com:A-E-3/ae3.sdk.git
+
+
+
+ae3/ae3-plug-iface-logger/				git@github.com:A-E-3/ae3-plug-iface-logger.git
+ae3/ae3-plug-iface-ssh/					git@github.com:A-E-3/ae3-plug-iface-ssh.git
+
+ae3/ae3.sdk-lang.acm-tpl/				git@github.com:A-E-3/ae3.sdk-lang.acm-tpl.git
+ae3/ae3.sys.pkg.base/					git@github.com:A-E-3/ae3.sys.pkg.base.git
+
+ae3/ae3.sys.pkg.i3.net/					git@github.com:A-E-3/ae3.sys.pkg.i3.net.git
+ae3/ae3.sys.pkg.i3.web/					git@github.com:A-E-3/ae3.sys.pkg.i3.web.git
+
+ae3/ae3.sys.pkg.l2.tgt.xml				git@github.com:A-E-3/ae3.sys.pkg.l2.tgt.xml.git
+
+
+
+ae3/ae3.sys.pkg.s4						git@github.com:A-E-3/ae3.sys.pkg.s4.git
+ae3/ae3.sys.pkg.s4.lcl.bdbje			git@github.com:A-E-3/ae3.sys.pkg.s4.lcl.bdbje.git
+
+ae3/ae3.pkg.net.ndm.client/				git@github.com:A-E-3/ae3.pkg.net.ndm.client.git
+
+
+ae3/ae3.dev.tgt.xml						git@github.com:A-E-3/ae3.dev.tgt.xml.git
+

@@ -36,7 +36,7 @@ export MMDAPP="$TGT_APP_PATH"
 
 myx.common git/cloneSync "$MMDAPP/source/ae3/util.repository-ae3" "git@github.com:A-E-3/util.repository-ae3.git"
 
-INF="$MMDAPP/source/ae3/util.repository-ae3/data/repository/repository.inf"
+INF="$MMDAPP/source/ae3/util.repository-ae3/sh-data/repository/repository.inf"
 ( set -e ; echo "# copied from $INF at `date`" ; cat "$INF" ) > "$MMDAPP/source/ae3/repository.inf"
 
 ############
