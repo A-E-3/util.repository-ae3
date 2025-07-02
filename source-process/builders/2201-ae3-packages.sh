@@ -23,7 +23,24 @@ MakeCachedProjectAe3Packages(){
 		if test -f "$AE3PKG/package.json" ; then
 			echo "tarring: $AE3PKG..." >&2
 			mkdir -p "$MDSC_OUTPUT/$projectName"
-			( cd "$AE3PKG" ; Async "`basename "$AE3PKG"`" tar -pczv -f "$MDSC_OUTPUT/$projectName/`basename "$AE3PKG"`.tar.gz" * ; wait ) &
+			( \
+				cd "$AE3PKG"
+				Async "`basename "$AE3PKG"`" \
+					tar \
+						-pczv \
+						--exclude='.DS_Store' \
+						--exclude='Icon?' \
+						--exclude='._*' \
+						--exclude='.Spotlight-V100' \
+						--exclude='.Trashes' \
+						--exclude='.git' \
+						--exclude='.git/**' \
+						--exclude='CVS' \
+						$( if tar --version 2>/dev/null | grep -q GNU ; then echo "--no-xattrs --no-acls --no-selinux"; fi ) \
+						$( if tar --version 2>/dev/null | grep -qi bsdtar ; then echo "--disable-copyfile"; fi ) \
+						-f "$MDSC_OUTPUT/$projectName/`basename "$AE3PKG"`.tar.gz" *
+				wait
+			) &
 		else
 			echo "skipping: $AE3PKG, no package.json" >&2
 		fi
