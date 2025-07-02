@@ -25,9 +25,8 @@ MakeCachedProjectAe3Packages(){
 			mkdir -p "$MDSC_OUTPUT/$projectName"
 			( \
 				cd "$AE3PKG"
-				Async "`basename "$AE3PKG"`" \
-					tar \
-						-pczv \
+				Async "$( basename "$AE3PKG" )" \
+					tar -pczvf "$MDSC_OUTPUT/$projectName/$( basename "$AE3PKG" ).tar.gz" \
 						--exclude='.DS_Store' \
 						--exclude='Icon?' \
 						--exclude='._*' \
@@ -38,7 +37,7 @@ MakeCachedProjectAe3Packages(){
 						--exclude='CVS' \
 						$( if tar --version 2>/dev/null | grep -q GNU ; then echo "--no-xattrs --no-acls --no-selinux"; fi ) \
 						$( if tar --version 2>/dev/null | grep -qi bsdtar ; then echo "--disable-copyfile"; fi ) \
-						-f "$MDSC_OUTPUT/$projectName/`basename "$AE3PKG"`.tar.gz" *
+						*
 				wait
 			) &
 		else
