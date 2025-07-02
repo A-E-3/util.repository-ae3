@@ -24,9 +24,11 @@ MakeCachedProjectAe3Packages(){
 			echo "tarring: $AE3PKG..." >&2
 			mkdir -p "$MDSC_OUTPUT/$projectName"
 			( \
-				cd "$AE3PKG"
+				cd "$AE3PKG" || {
+					echo "ERROR: Can't CD into $AE3PKG" >&2 ; return 1
+				}
 				Async "$( basename "$AE3PKG" )" \
-					tar -pczvf "$MDSC_OUTPUT/$projectName/$( basename "$AE3PKG" ).tar.gz" \
+					tar -czvf "$MDSC_OUTPUT/$projectName/$( basename "$AE3PKG" ).tar.gz" \
 						--exclude='.DS_Store' \
 						--exclude='Icon?' \
 						--exclude='._*' \
@@ -37,7 +39,7 @@ MakeCachedProjectAe3Packages(){
 						--exclude='CVS' \
 						$( if tar --version 2>/dev/null | grep -q GNU ; then echo "--no-xattrs --no-acls --no-selinux"; fi ) \
 						$( if tar --version 2>/dev/null | grep -qi bsdtar ; then echo "--disable-copyfile"; fi ) \
-						*
+						.
 				wait
 			) &
 		else
