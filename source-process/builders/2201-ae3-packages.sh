@@ -29,6 +29,7 @@ MakeCachedProjectAe3Packages(){
 				}
 				Async "$( basename "$AE3PKG" )" \
 					tar -czvf "$MDSC_OUTPUT/$projectName/$( basename "$AE3PKG" ).tar.gz" \
+						--format=posix \
 						--exclude='.DS_Store' \
 						--exclude='Icon?' \
 						--exclude='._*' \
