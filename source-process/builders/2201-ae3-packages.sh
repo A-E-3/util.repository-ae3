@@ -27,7 +27,7 @@ MakeCachedProjectAe3Packages(){
 				cd "$AE3PKG" || {
 					echo "ERROR: Can't CD into $AE3PKG" >&2 ; return 1
 				}
-				Async "$( basename "$AE3PKG" )" \
+				Prefix "$( basename "$AE3PKG" )" \
 					tar -czvf "$MDSC_OUTPUT/$projectName/$( basename "$AE3PKG" ).tar.gz" \
 						--format=posix \
 						--no-xattrs \
@@ -46,7 +46,6 @@ MakeCachedProjectAe3Packages(){
 						--exclude='.git/**' \
 						--exclude='CVS' \
 						.
-				wait
 			) &
 		else
 			echo "skipping: $AE3PKG, no package.json" >&2
@@ -60,8 +59,7 @@ Require ListDistroProvides
 ListDistroProvides --select-changed --filter-and-cut "source-process" | grep -e " ae3-packages$" \
 | cut -d" " -f1 | while read -r projectName ; do
 	if [ -d "$MDSC_SOURCE/$projectName/ae3-packages" ] ; then
-		Async -2 MakeCachedProjectAe3Packages "$projectName"
-		wait
+		Prefix -2 MakeCachedProjectAe3Packages "$projectName"
 	else
 		echo "skipping: $projectName, no ae3-packages folder" >&2
 	fi
