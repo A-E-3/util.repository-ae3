@@ -22,13 +22,13 @@ MakeCachedProjectAe3Packages(){
 	for AE3PKG in $AE3PKGS ; do
 		if test -f "$AE3PKG/package.json" ; then
 			echo "tarring: $AE3PKG..." >&2
-			mkdir -p "$MDSC_OUTPUT/$projectName"
+			mkdir -p "$MDSC_OUTPUT/distro/$projectName"
 			( \
 				cd "$AE3PKG" || {
 					echo "ERROR: Can't CD into $AE3PKG" >&2 ; return 1
 				}
 				Prefix "$( basename "$AE3PKG" )" \
-					tar -czvf "$MDSC_OUTPUT/$projectName/$( basename "$AE3PKG" ).tar.gz" \
+					tar -czvf "$MDSC_OUTPUT/distro/$projectName/$( basename "$AE3PKG" ).tar.gz" \
 						--format=posix \
 						--no-xattrs \
 						$( if tar --version 2>/dev/null | grep -q GNU ; then
