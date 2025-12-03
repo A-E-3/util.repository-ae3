@@ -1,3 +1,11 @@
+#!/bin/sh
+# ^^^ for syntax highlight
+
+[ full != "$MDSC_DETAIL" ] || set -x
+
+type Prefix >/dev/null 2>&1 || . "$( myx.common which lib/prefix )"
+type Parallel >/dev/null 2>&1 || . "$( myx.common which lib/parallel )"
+
 MakeCachedProjectAe3Packages(){
 	local MDSC_SOURCE="${MDSC_SOURCE:-$MMDAPP/cached/sources}"
 	local MDSC_OUTPUT="${MDSC_OUTPUT:-$MMDAPP/output/distro}"
@@ -9,8 +17,10 @@ MakeCachedProjectAe3Packages(){
 
 	local DIR="$MDSC_SOURCE/$projectName"
 	local SRC="$DIR/ae3-packages"
+
 	if [ ! -d "$SRC" ] ; then
-		echo "ERROR: Project doesn't have ae3-packages" >&2 ; return 1
+		echo "skipping: $projectName, no ae3-packages folder" >&2
+		return 0
 	fi
 	
 	local AE3PKGS="`find "$SRC" -mindepth 1 -maxdepth 1 -type d | sort`"
@@ -57,10 +67,5 @@ MakeCachedProjectAe3Packages(){
 
 Require ListDistroProvides
 ListDistroProvides --select-changed --filter-and-cut "source-process" | grep -e " ae3-packages$" \
-| cut -d" " -f1 | while read -r projectName ; do
-	if [ -d "$MDSC_SOURCE/$projectName/ae3-packages" ] ; then
-		Prefix -2 MakeCachedProjectAe3Packages "$projectName"
-	else
-		echo "skipping: $projectName, no ae3-packages folder" >&2
-	fi
-done
+| cut -d" " -f1 \
+| Parallel -v Prefix -2 MakeCachedProjectAe3Packages # "$projectName" 
