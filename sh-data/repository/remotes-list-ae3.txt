@@ -12,7 +12,6 @@ ae3/ae3.api	 							git@github.com:A-E-3/ae3.api.git
 ae3/ae3.sdk	 							git@github.com:A-E-3/ae3.sdk.git
 
 
-
 ae3/ae3-plug-iface-logger				git@github.com:A-E-3/ae3-plug-iface-logger.git
 ae3/ae3-plug-iface-ssh					git@github.com:A-E-3/ae3-plug-iface-ssh.git
 
