@@ -1,12 +1,15 @@
 
-ae3/util.repository-ae3				git@github.com:A-E-3/util.repository-ae3.git
+myx/clean-java.io/                     	git@github.com:myx/clean-java.io.git
+myx/clean-java.util/                   	git@github.com:myx/clean-java.util.git
 
-ae3/ae3-install-utility				git@github.com:A-E-3/ae3-install-utility.git
+ae3/util.repository-ae3					git@github.com:A-E-3/util.repository-ae3.git
+
+ae3/ae3-install-utility					git@github.com:A-E-3/ae3-install-utility.git
 
 
 
-ae3/ae3.api	 						git@github.com:A-E-3/ae3.api.git
-ae3/ae3.sdk	 						git@github.com:A-E-3/ae3.sdk.git
+ae3/ae3.api	 							git@github.com:A-E-3/ae3.api.git
+ae3/ae3.sdk	 							git@github.com:A-E-3/ae3.sdk.git
 
 
 
