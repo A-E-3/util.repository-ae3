@@ -1,6 +1,7 @@
 
 myx/clean-java.io/                     	git@github.com:myx/clean-java.io.git
 myx/clean-java.util/                   	git@github.com:myx/clean-java.util.git
+myx/clean-java.crypto/                 	git@github.com:myx/clean-java.crypto.git
 
 lib/lib.lowagie-itext/					git@github.com:myx-distro-libs/lib.lowagie-itext.git
 lib/lib.jexcelapi-jxl/				    git@github.com:myx-distro-libs/lib.jexcelapi-jxl.git
