@@ -33,6 +33,6 @@ WorkspaceBootstrap --verbose --git-clone --config-stdin \
     # Executable commands to setup source sub-system
 		deploy exec env | grep MD ; echo '👋 Deploy Hello!'
 		source exec env | grep MD ; echo '👋 Source Hello!'
-		#source exec Source DistroImageSync --verbose --all-tasks --execute-source-prepare-pull
+		#source exec Distro DistroImageSync --verbose --all-tasks --execute-source-prepare-pull
 
 WORKSPACE_CONFIG
