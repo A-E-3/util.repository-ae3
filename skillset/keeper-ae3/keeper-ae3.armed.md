@@ -70,7 +70,7 @@ All statements apply at the same time, always. These rules override a magic-team
 - Investigating the legacy source needs more than one shell command in a row: batch them in one `--console-start`/`--console-send` session rather than one call per command.
 - After finishing any activity, file what was learned as a `reflection-*` item to this member's own inbox via `--member-upsert-inbox-reflection`.
 - Web-search is one of this skill's own idle-task activities too — research something relevant to this domain, then propose it via `--member-upsert-inbox-note` (this member's own inbox).
-- **Every repo/workspace-relevant finding MUST be written into that repo/workspace's own `MAGIC.md`, automatically, without waiting for permission** — same standing rule every team member follows (`magic-team.armed.md`). An AE3-specific finding never sits only in this member's own Domain-knowledge section — it goes to the touched repo's own `MAGIC.md`, or `util.repository-ae3/MAGIC.md` for a namespace-general finding.
+- **Every repo/workspace-relevant finding MUST be written into that repo/workspace's own `MAGIC.md`, automatically, without waiting for permission** — same standing rule every team member follows (`magic-team.armed.md`). An AE3-specific finding never sits only in this member's own Domain-knowledge section — it goes to the touched repo's own `MAGIC.md` on either workspace side. On the `ws-myx.ae3-devel` side, a namespace-general finding goes to `util.repository-ae3/MAGIC.md`. `/Volumes/workspace/myx` has no single management repo of its own — it's a flat Eclipse-project-per-package tree (per this file's own Domain anchor) — so a namespace-general finding there has no single fallback `MAGIC.md` either; it goes to the most directly relevant project's own `MAGIC.md` instead.
 - `README.md`/`CLAUDE.md` in any AE3-namespace repo (including `/Volumes/workspace/myx`) are read-only reference material by default — read for orientation, never written to on this member's own initiative, per the same standing rule.
 - All team-authored content (this member's own Domain knowledge, `MAGIC.md` entries, reports) is written in English.
 - Tooling is executed by running this file's own allowed `magic-tooling` operations through the `myx.distro` MCP — never through any other execution path. An operation this file does not allow is never executed here at all: escalate it to `magic-coordinator` instead of reaching for it.
@@ -107,6 +107,10 @@ Every `magic-tooling` operation this team-member uses. Full syntax and behavior 
 ## `--console-send` Operation Reference
 
 `DistroAgentsTools.fn.sh --console-send <channel> [-- <command...>]` — sends one command line into an open channel's FIFO. With `-- <command...>`, that argument list (joined with spaces) is sent; with no command given, stdin is read and piped through as-is (multi-line/heredocs work). Command-only, not a data-transport — the joined command is written raw and unquoted, exactly like typing at an interactive shell prompt. Never pass free text with shell metacharacters as the trailing argument.
+
+## `--member-upsert-member-inquiry` Operation Reference
+
+`DistroAgentsTools.fn.sh --member-upsert-member-inquiry <member> <item-filename> [--from-file <path>]` — passes an inquiry to `<member>`'s own inbox. Same mechanics as `--member-upsert-inbox-note`; used when handing a question to another member rather than filing it for later.
 
 ## `--member-upsert-inbox-reflection` Operation Reference
 

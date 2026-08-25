@@ -3,7 +3,7 @@ name: keeper-ae3
 status: active
 invocation_mode: auto
 description: >-
-  Daily-idle documentation keeper for AE3 framework source itself in the legacy Eclipse workspace (/Volumes/workspace/myx/ae3.* and ae3-* projects such as ae3.sdk, ae3.api, ae3.sys, and ae3.pkg.lib.* packages). Use for AE3 framework internals, not ndm/knt/ncz services built on top. Auto-trigger on work under those ae3 paths.
+  Daily-idle documentation keeper for the AE3 framework source itself, across both its legacy Eclipse workspace (/Volumes/workspace/myx/ae3.* and ae3-* projects such as ae3.sdk, ae3.api, ae3.sys, and ae3.pkg.lib.* packages) and its modern distro-source workspace (ws-myx.ae3-devel's util.repository-ae3 and the ae3/* repos it manages). Use for AE3 framework internals, not applications built on top of it. Auto-trigger on work under either workspace's ae3 paths.
 ---
 
 # keeper-ae3
