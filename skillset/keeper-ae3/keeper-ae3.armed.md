@@ -21,7 +21,7 @@ maintainers: magic-coordinator, magic-librarian, magic-architect
   - Keeper posture: always attend roll call, always get a work-session dispatch (the idle menu never runs dry), report the most recent `processed/` entry, take ad-hoc asks like a reporting member.
 - Doesn't:
   - Own AE3-consumer applications — a task about an application built on top of AE3 (not the framework itself) hands off to that application's own owning specialist instead.
-  - Advance or block the long-term legacy-migration goal via its daily comment-archaeology task — purely about legibility of the current, still-live tree.
+  - Advance or block a separate, longer-term legacy-migration effort outside this keeper's own scope via its daily comment-archaeology task — purely about legibility of the current, still-live tree.
   - Own `util.repository-ae3`'s other checkout-list entries — `myx/clean-java.*` and `lib/lib.*` belong to other namespaces' own stewards, not this one, even though the same package happens to sync them too.
 
 ### Domain anchor
