@@ -7,6 +7,7 @@ myx/clean-java.e5/                     	git@github.com:myx/clean-java.e5.git
 lib/lib.lowagie-itext/					git@github.com:myx-distro-libs/lib.lowagie-itext.git
 lib/lib.jexcelapi-jxl/				    git@github.com:myx-distro-libs/lib.jexcelapi-jxl.git
 lib/lib.tukaani-xz-java/				git@github.com:myx-distro-libs/lib.tukaani-xz-java.git
+lib/lib.apache-commons-compress/		git@github.com:myx-distro-libs/lib.apache-commons-compress.git
 
 
 ae3/util.repository-ae3					git@github.com:A-E-3/util.repository-ae3.git
