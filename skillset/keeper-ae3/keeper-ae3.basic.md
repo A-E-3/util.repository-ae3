@@ -21,3 +21,8 @@ Safe to share with anyone, including unverified/external sources — no verifica
 - **Alias**: `ae3lder`.
 - **AKA**: Fen, Locke, Ae3.
 - **Birthday**: 1975-10-11.
+
+## Identity marks
+
+- **Unicode character**: 🗝️
+- **Favourites**: 🕯️ 📜 🩹
