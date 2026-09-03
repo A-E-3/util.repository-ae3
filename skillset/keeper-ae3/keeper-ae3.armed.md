@@ -69,8 +69,8 @@ All statements apply at the same time, always. These rules override a magic-team
 - A package's purpose is unclear from its name alone: read it and verify directly before recording anything as a confirmed package-purpose note. Never guess.
 - Investigating the legacy source needs more than one shell command in a row: batch them in one `--console-start`/`--console-send` session rather than one call per command.
 - **`ws-myx.ae3-devel` edit boundary**: `util.repository-ae3`'s own workspace files (`project.inf`, `remotes-list-ae3.txt`, `MAGIC.md`, `skillset/keeper-ae3/*`) are directly editable in this workspace. The individual AE3 code-project checkouts under `ws-myx.ae3-devel/source/ae3/` (`ae3.api`, `ae3.sdk-lang.acm-tpl`, `ae3.sys.pkg.s4.lcl.bdbje`, etc.) are not — a real fix lands in the `/Volumes/workspace/myx` legacy checkout only, and the human-owner pulls it into `ws-myx.ae3-devel` himself.
-- After finishing any activity, file what was learned as a `reflection-*` item to this member's own inbox via `--member-upsert-inbox-reflection`.
-- Web-search is one of this skill's own idle-task activities too — research something relevant to this domain, then propose it via `--member-upsert-inbox-note` (this member's own inbox).
+- After finishing any activity, file what was learned as a `reflection-*` item to this member's own inbox via `--member-inbox-reflection-upsert`.
+- Web-search is one of this skill's own idle-task activities too — research something relevant to this domain, then propose it via `--member-inbox-note-upsert` (this member's own inbox).
 - **Every repo/workspace-relevant finding MUST be written into that repo/workspace's own `MAGIC.md`, automatically, without waiting for permission** — same standing rule every team member follows (`magic-team.armed.md`). An AE3-specific finding never sits only in this member's own Domain-knowledge section — it goes to the touched repo's own `MAGIC.md` on either workspace side. On the `ws-myx.ae3-devel` side, a namespace-general finding goes to `util.repository-ae3/MAGIC.md`. `/Volumes/workspace/myx` has no single management repo of its own — it's a flat Eclipse-project-per-package tree (per this file's own Domain anchor) — so a namespace-general finding there has no single fallback `MAGIC.md` either; it goes to the most directly relevant project's own `MAGIC.md` instead.
 - `README.md`/`CLAUDE.md` in any AE3-namespace repo (including `/Volumes/workspace/myx`) are read-only reference material by default — read for orientation, never written to on this member's own initiative, per the same standing rule.
 - All team-authored content (this member's own Domain knowledge, `MAGIC.md` entries, reports) is written in English.
@@ -106,8 +106,8 @@ Every `magic-tooling` operation this team-member uses. Full syntax and behavior 
 - `--console-start [--override-workspace <path>] [--console DistroSourceConsole.sh|DistroDeployConsole.sh] [--ttl <seconds>]`
 - `--console-send <channel> [-- <command...>]`
 - `--member-upsert-member-inquiry <member> <item-filename> [--from-file <path>]`
-- `--member-upsert-inbox-reflection <keeper-ae3> <item-filename> [--from-file <path>|--edit-patch-from-stdin]`
-- `--member-upsert-inbox-note <keeper-ae3> <item-filename> [--from-file <path>|--edit-patch-from-stdin]`
+- `--member-inbox-reflection-upsert <keeper-ae3> <item-filename> [--from-file <path>|--edit-patch-from-stdin]`
+- `--member-inbox-note-upsert <keeper-ae3> <item-filename> [--from-file <path>|--edit-patch-from-stdin]`
 
 ## `--console-start` Operation Reference
 
@@ -119,15 +119,15 @@ Every `magic-tooling` operation this team-member uses. Full syntax and behavior 
 
 ## `--member-upsert-member-inquiry` Operation Reference
 
-`DistroAgentsTools.fn.sh --member-upsert-member-inquiry <member> <item-filename> [--from-file <path>]` — passes an inquiry to `<member>`'s own inbox. Same mechanics as `--member-upsert-inbox-note`; used when handing a question to another member rather than filing it for later.
+`DistroAgentsTools.fn.sh --member-upsert-member-inquiry <member> <item-filename> [--from-file <path>]` — passes an inquiry to `<member>`'s own inbox. Same mechanics as `--member-inbox-note-upsert`; used when handing a question to another member rather than filing it for later.
 
-## `--member-upsert-inbox-reflection` Operation Reference
+## `--member-inbox-reflection-upsert` Operation Reference
 
-`DistroAgentsTools.fn.sh --member-upsert-inbox-reflection <member> <item-filename> [--from-file <path>|--edit-patch-from-stdin]` — same mechanics as `--member-upsert-inbox-note`, used specifically for `reflection-*` items (frontmatter + "# Reflection: ..." + "## What happened"/"## Why this is worth keeping"). `<item-filename>` conventionally contains `reflection-` in its slug.
+`DistroAgentsTools.fn.sh --member-inbox-reflection-upsert <member> <item-filename> [--from-file <path>|--edit-patch-from-stdin]` — same mechanics as `--member-inbox-note-upsert`, used specifically for `reflection-*` items (frontmatter + "# Reflection: ..." + "## What happened"/"## Why this is worth keeping"). `<item-filename>` conventionally contains `reflection-` in its slug.
 
-## `--member-upsert-inbox-note` Operation Reference
+## `--member-inbox-note-upsert` Operation Reference
 
-`DistroAgentsTools.fn.sh --member-upsert-inbox-note <member> <item-filename> [--from-file <path>|--edit-patch-from-stdin]` — writes (creates or overwrites) a note into `<member>`'s own inbox. Content via stdin by default, or `--from-file <path>`. `<item-filename>` is a bare filename, no path separators.
+`DistroAgentsTools.fn.sh --member-inbox-note-upsert <member> <item-filename> [--from-file <path>|--edit-patch-from-stdin]` — writes (creates or overwrites) a note into `<member>`'s own inbox. Content via stdin by default, or `--from-file <path>`. `<item-filename>` is a bare filename, no path separators.
 
 # Maintainer Notes
 
