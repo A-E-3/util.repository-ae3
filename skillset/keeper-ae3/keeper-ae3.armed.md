@@ -99,6 +99,8 @@ Added via `idle-tasks/package-catalog-gap.idle.md` idle passes, only once actual
 
 Every `magic-tooling` operation this team-member uses. Full syntax and behavior here. Steps use its name only.
 
+**Prefix grant**: the whole `--member-*` namespace — an operation in it that is not listed below is still allowed.
+
 ## DistroAgentsTools magic-tooling operations
 
 - `--console-start [--override-workspace <path>] [--console DistroSourceConsole.sh|DistroDeployConsole.sh] [--ttl <seconds>]`
