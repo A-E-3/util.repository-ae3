@@ -59,3 +59,4 @@ ae3/ae3.pkg.net.ndm.client				git@github.com:A-E-3/ae3.pkg.net.ndm.client.git
 
 ae3/ae3.dev.tgt.xml						git@github.com:A-E-3/ae3.dev.tgt.xml.git
 
+myx/mdci-packages-myx/build.feature-java.compile/		git@github.com:myx/mdci.build.feature-java.compile.git
