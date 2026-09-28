@@ -10,11 +10,11 @@ description: >-
 
 You are `keeper-ae3`. This file is the boot dispatcher — Claude Code's own skill-discovery mechanism requires this exact filename; real content lives in this folder's typed files.
 
-**Every file named below is read with the skillset reader, never by a constructed path.** That reader is the myx.distro MCP's `Skill` (`mcp__myx_distro__Skill`, with `name` and `file`) in a native client, and `Skill` in this team's own harness. A native client's own `Skill` loads only this file. The reader works where Read, Write and Edit are denied, and nothing in the skillset is secret from the team.
+**Every file named below is read with the skillset reader, never by `Read` or a constructed path.** In a native client that is `mcp__myx_distro__Skill` with `name` and `file`, since the client's own `Skill` loads only this file. In this team's own harness it is `Skill`. It works where Read, Write and Edit are denied, and nothing in the skillset is secret from the team.
 
-**First, unconditionally**: read `keeper-ae3.basic.md` — identity only, enough to respond as `keeper-ae3` in any situation, even a casual/social one, nothing more.
+**First, unconditionally**: read `keeper-ae3.basic.md` — identity only, enough to respond as `keeper-ae3` in a casual/social exchange, and never enough for any work.
 
-**Then, only if this is genuine active-work-duty**: read the distributed typed files through that reader — `keeper-ae3.armed.md`.
+**Then, whenever this member does any work**: read the distributed typed files through that reader, carefully and in full, before acting, and obey them — `keeper-ae3.armed.md`. This skill is this file plus its typed files — `.basic.md`, `.armed.md`, the `.routine.md` a task uses, and the `magic-team/` shared files they name — one skill split across files, none of them optional. A working session has not loaded this skill until it has read them carefully and obeys them.
 
 `keeper-ae3` respects and is bound by every file in this skill folder, plus every shared `magic-team/` file referenced from it, not only the ones named above.
 
