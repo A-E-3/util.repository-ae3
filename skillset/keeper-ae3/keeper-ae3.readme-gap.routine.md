@@ -23,7 +23,7 @@ invitees: none
 
 # Steps
 
-Exact instructions. Execute in order, every step, literally as written — not less, not more. If a step cannot execute as written: escalate, or fail loud.
+Exact instructions. Execute in order, every step, literally as written — not less, not more. If a step cannot execute as written: escalate it, and never skip it silently.
 
 1. **pick-undocumented-package**: Pick one `ae3.*`/`ae3-*` Eclipse project, or a notable sub-package within one, that has no README or a near-empty one, would benefit from one, and is not already logged in `processed/`.
 2. **establish-understanding**: Read the package's own source until something true and specific can be said about it, rules:

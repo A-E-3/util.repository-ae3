@@ -23,7 +23,7 @@ invitees: none
 
 # Steps
 
-Exact instructions. Execute in order, every step, literally as written — not less, not more. If a step cannot execute as written: escalate, or fail loud.
+Exact instructions. Execute in order, every step, literally as written — not less, not more. If a step cannot execute as written: escalate it, and never skip it silently.
 
 1. **pick-understood-class**: Pick one class in the AE3 framework tree that has been read and actually understood, lacks a good comment, and is not already logged in `processed/`, rules:
    - Understanding comes from reading the class and its own dependencies, never from its name or its package's taxonomy position.

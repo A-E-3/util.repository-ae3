@@ -23,7 +23,7 @@ invitees: none
 
 # Steps
 
-Exact instructions. Execute in order, every step, literally as written — not less, not more. If a step cannot execute as written: escalate, or fail loud.
+Exact instructions. Execute in order, every step, literally as written — not less, not more. If a step cannot execute as written: escalate it, and never skip it silently.
 
 1. **pick-uncatalogued-package**: Pick one package whose real purpose is not yet carried by `keeper-ae3.armed.md`'s `# Domain knowledge: confirmed package-purpose notes` section and is not already logged in `processed/`. A package understood during another pass of this member's own idle work is an equally valid candidate.
 2. **establish-purpose-from-source**: Read the package's own source until its real purpose is grounded, rules:
