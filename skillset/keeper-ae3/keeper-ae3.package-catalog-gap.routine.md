@@ -5,6 +5,27 @@ invitees: none
 ---
 # keeper-ae3.package-catalog-gap.routine — the actual procedure
 
+## Contents
+
+- Summary
+  - Goals
+  - Scope
+- Steps
+- Closure steps
+- Routine's local procedures
+- Routine's local rules
+- Routine-specific tooling
+  - DistroAgentsTools magic-tooling operations
+  - `--console-start` Operation Reference
+  - `--console-send` Operation Reference
+  - `--member-inbox-reflection-upsert` Operation Reference
+- Maintainer Notes
+  - Verbatim-goals (intents)
+  - Verbatim-tests (benchmarks)
+  - Librarian Comments
+    - Reference
+    - Conventions
+
 # Summary
 
 `keeper-ae3`'s idle-run routine that records one confirmed package-purpose note for a package-taxonomy branch that is not yet catalogued.

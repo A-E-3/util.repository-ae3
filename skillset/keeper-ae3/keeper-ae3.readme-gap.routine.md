@@ -5,6 +5,27 @@ invitees: none
 ---
 # keeper-ae3.readme-gap.routine — the actual procedure
 
+## Contents
+
+- Summary
+  - Goals
+  - Scope
+- Steps
+- Closure steps
+- Routine's local procedures
+- Routine's local rules
+- Routine-specific tooling
+  - DistroAgentsTools magic-tooling operations
+  - `--console-start` Operation Reference
+  - `--console-send` Operation Reference
+  - `--member-inbox-reflection-upsert` Operation Reference
+- Maintainer Notes
+  - Verbatim-goals (intents)
+  - Verbatim-tests (benchmarks)
+  - Librarian Comments
+    - Reference
+    - Conventions
+
 # Summary
 
 `keeper-ae3`'s idle-run routine that writes one short, grounded README for an understood AE3 package that has none.

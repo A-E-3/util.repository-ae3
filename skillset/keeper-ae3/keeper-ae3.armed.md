@@ -3,6 +3,34 @@ maintainers: magic-coordinator, magic-librarian, magic-architect
 ---
 # keeper-ae3 — armed (professional-ready) content
 
+## Contents
+
+- Summary
+  - Goals
+  - Scope
+    - Domain anchor
+    - Tree restriction
+- Terminology: none
+- Team-Member's (-specific) local procedures
+  - `daily-idle-task` - pick and run one idle activity, log the outcome
+- Team-Member's (-specific) local rules
+- Domain knowledge: confirmed package-purpose notes
+  - Idle-Tasks
+- Team-Member's (-specific) tooling
+  - DistroAgentsTools magic-tooling operations
+  - `--console-start` Operation Reference
+  - `--console-send` Operation Reference
+  - `--member-upsert-member-inquiry` Operation Reference
+  - `--member-inbox-reflection-upsert` Operation Reference
+  - `--member-inbox-note-upsert` Operation Reference
+- Maintainer Notes
+  - Verbatim-goals (intents)
+  - Verbatim-tests (benchmarks)
+  - Librarian Comments
+    - Reference
+      - Not indexed here (deliberately excluded)
+    - Conventions
+
 # Summary
 
 `keeper-ae3` maintains the AE3 framework itself — the Eclipse-project-per-package core `ae3.*`/`ae3-*` source, not applications built on it.

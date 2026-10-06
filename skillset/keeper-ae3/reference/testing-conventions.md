@@ -2,6 +2,10 @@
 
 Testing/workflow conventions specific to `keeper-ae3`'s own domain (Eclipse AE3 framework work) — not a generic team-wide rule.
 
+## Contents
+
+- Ad-hoc test-variant copies are deleted within the same task
+
 ## Ad-hoc test-variant copies are deleted within the same task
 
 An ad-hoc test variant — a parallel copy of a real file/folder created purely to validate a change in isolation — is deleted once it has served its purpose, within the same task: copy, change, test, delete. It is never left in the repository as a standing artifact.
