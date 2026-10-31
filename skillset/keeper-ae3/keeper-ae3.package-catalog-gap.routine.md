@@ -1,7 +1,11 @@
 ---
+type: routine
 executors: keeper-ae3
 maintainers: magic-coordinator, magic-librarian, magic-architect
 invitees: none
+requires-session-kind: standalone
+input-scan-def: none
+review-by: inherit
 ---
 # keeper-ae3.package-catalog-gap.routine — the actual procedure
 
@@ -10,15 +14,16 @@ invitees: none
 - Summary
   - Goals
   - Scope
+- Opening steps
 - Steps
 - Closure steps
 - Routine's local procedures
 - Routine's local rules
 - Routine-specific tooling
-  - DistroAgentsTools magic-tooling operations
+  - Tooling operations
   - `--console-start` Operation Reference
   - `--console-send` Operation Reference
-  - `--member-inbox-reflection-upsert` Operation Reference
+  - `--upsert-inbox-reflection` Operation Reference
 - Maintainer Notes
   - Verbatim-goals (intents)
   - Verbatim-tests (benchmarks)
@@ -42,6 +47,10 @@ invitees: none
   - Record anything inferred from a naming or taxonomy pattern alone.
   - Re-touch a package already logged in `processed/`.
 
+# Opening steps
+
+None of its own: the Opening steps of the routine it inherits from run first (its session kind's, or `magic-team.inline.routine`'s when it runs inline).
+
 # Steps
 
 Exact instructions. Execute in order, every step, literally as written — not less, not more. If a step cannot execute as written: escalate it, and never skip it silently.
@@ -54,7 +63,7 @@ Exact instructions. Execute in order, every step, literally as written — not l
 
 # Closure steps
 
-1. **log-outcome**: Log the activity and its outcome as a new dated file under `processed/` — `processed/<board-item-type>-<date>-<short-topic>.md`, a real board-item type, never an invented word. Then run this member's own post-activity reflection (`--member-inbox-reflection-upsert`), per `keeper-ae3.armed.md`.
+1. **log-outcome**: Log the activity and its outcome as a new dated file under `processed/` — `processed/<board-item-type>-<date>-<short-topic>.md`, a real board-item type, never an invented word. Then run this member's own post-activity reflection (`--upsert-inbox-reflection`), per `keeper-ae3.armed.md`.
 
 # Routine's local procedures
 
@@ -77,11 +86,11 @@ All statements apply at the same time, always. These rules override a participan
 
 Every `magic-tooling` operation this routine uses. Full syntax and behavior here. Steps use its name only.
 
-## DistroAgentsTools magic-tooling operations
+## Tooling operations
 
 - `--console-start [--override-workspace <path>] [--console DistroSourceConsole.sh|DistroDeployConsole.sh] [--ttl <seconds>]` (**pick-uncatalogued-package**, **establish-purpose-from-source**: batch the reads)
 - `--console-send <channel> [-- <command...>]` (**pick-uncatalogued-package**, **establish-purpose-from-source**)
-- `--member-inbox-reflection-upsert <member> <item-filename> [--from-file <path>|--edit-patch-from-stdin]` (**log-outcome**)
+- `--upsert-inbox-reflection <item-filename> [--from-file <path>|--edit-patch-from-stdin]` (**log-outcome**)
 
 ## `--console-start` Operation Reference
 
@@ -91,9 +100,9 @@ Every `magic-tooling` operation this routine uses. Full syntax and behavior here
 
 `DistroAgentsTools.fn.sh --console-send <channel> [-- <command...>]` — sends one command line into an open channel's FIFO. Command-only, not a data-transport.
 
-## `--member-inbox-reflection-upsert` Operation Reference
+## `--upsert-inbox-reflection` Operation Reference
 
-`DistroAgentsTools.fn.sh --member-inbox-reflection-upsert <member> <item-filename> [--from-file <path>|--edit-patch-from-stdin]` — files a `reflection-*` item into `<member>`'s own inbox.
+`DistroAgentsItems.fn.sh --upsert-inbox-reflection <item-filename> [--from-file <path>|--edit-patch-from-stdin]` — files a `reflection-*` item into `<member>`'s own inbox.
 
 # Maintainer Notes
 

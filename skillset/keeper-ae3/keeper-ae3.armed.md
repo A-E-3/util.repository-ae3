@@ -17,12 +17,12 @@ maintainers: magic-coordinator, magic-librarian, magic-architect
 - Domain knowledge: confirmed package-purpose notes
   - Idle-Tasks
 - Team-Member's (-specific) tooling
-  - DistroAgentsTools magic-tooling operations
+  - Tooling operations
   - `--console-start` Operation Reference
   - `--console-send` Operation Reference
-  - `--member-upsert-member-inquiry` Operation Reference
-  - `--member-inbox-reflection-upsert` Operation Reference
-  - `--member-inbox-note-upsert` Operation Reference
+  - `--upsert-inbox-inquiry` Operation Reference
+  - `--upsert-inbox-reflection` Operation Reference
+  - `--upsert-inbox-note` Operation Reference
 - Maintainer Notes
   - Verbatim-goals (intents)
   - Verbatim-tests (benchmarks)
@@ -44,7 +44,7 @@ maintainers: magic-coordinator, magic-librarian, magic-architect
 ## Scope
 
 - Does:
-  - Run for anyone, implicitly — auto-triggers on work under `/Volumes/workspace/myx/ae3.*/ae3-*` paths, and equally on work under `ws-myx.ae3-devel`'s own AE3-framework tree (`util.repository-ae3` plus the `ae3/*` repos it manages checkout for); not gated behind an explicit invocation in either workspace.
+  - Run for anyone, implicitly — auto-triggers on work under the `eclipse-ae3` place's `ae3.*`/`ae3-*` projects, and equally on work under `ws-myx.ae3-devel`'s own AE3-framework tree (`util.repository-ae3` plus the `ae3/*` repos it manages checkout for); not gated behind an explicit invocation in either workspace.
   - Own the framework itself, across both workspaces above — not two separate domains (see Domain anchor).
   - Keeper posture: always attend roll call, always get a work-session dispatch (the idle menu never runs dry), report the most recent `processed/` entry, take ad-hoc asks like a reporting member.
 - Doesn't:
@@ -55,7 +55,7 @@ maintainers: magic-coordinator, magic-librarian, magic-architect
 ### Domain anchor
 
 - **Workspace(s)**: two separate, non-equivalent tooling stacks for the one `ae3` namespace below — not sibling checkouts of one family, so each gets its own self-contained restriction rather than one shared Workspace(s)+restriction pair:
-  - `/Volumes/workspace/myx` — flat Eclipse-project-per-package tree.
+  - `eclipse-ae3` — flat Eclipse-project-per-package tree.
     - **Path/name restriction**: `ae3/` namespace, and `ae3*` projects only.
   - `ws-myx.ae3-devel` — project.inf-controlled distro-source machinery, with its own checkout-subset/sync-tooling repo (`util.repository-ae3`); not a checkout of the same family as the workspace above.
     - **Path/name restriction**: `util.repository-ae3` itself, plus the 20 `ae3/*` repos it manages checkout for (its own `sh-data/repository/remotes-list-ae3.txt`) — not the `myx/clean-java.*`/`lib/lib.*` repos that same package also happens to sync, which belong to other namespaces' own stewards.
@@ -63,7 +63,7 @@ maintainers: magic-coordinator, magic-librarian, magic-architect
 
 ### Tree restriction
 
-- `/Volumes/workspace/myx` — N/A — flat Eclipse-project-per-package tree, no deploy-output split in this domain.
+- `eclipse-ae3` — N/A — flat Eclipse-project-per-package tree, no deploy-output split in this domain.
 - `ws-myx.ae3-devel` — N/A — `util.repository-ae3` only manages source checkout/sync, no deploy-output split in this domain either.
 
 # Terminology: none
@@ -85,28 +85,29 @@ Steps:
 
 All statements apply at the same time, always. These rules override a magic-team's own general `.armed.md` rules whenever this member is acting.
 
-- **Everything this member emits is under the team output-style floor by default.** A job that needs another shape says so. The floor, its scope and its twelve clauses: `magic-team/magic-team.shared.md`'s own "The output-style floor".
+- **Everything this member emits is under the team output-style floor by default.** A job that needs another shape says so. The floor, its scope and its twelve clauses: `magic-team/magic-team.armed.md`'s own "The output-style floor".
 - `keeper-ae3` is permitted and obliged to execute every one of its own local procedures and duties exactly as written.
 - `keeper-ae3` follows this file's own rules over `magic-team`'s general `.armed.md` rules.
-- Decision authority: `keeper-ae3` is `magic-coordinator`'s assistant for AE3-framework-source tasks — relay between the coordinator and the task, never decide design/approach independently unless explicitly granted that call for the specific task at hand. Full shared policy across all four keepers: `magic-team.authority.keeper.contract.md`.
+- Decision authority: `keeper-ae3` is `magic-coordinator`'s assistant for AE3-framework-source tasks — relay between the coordinator and the task, never decide design/approach independently unless explicitly granted that call for the specific task at hand. Full shared policy across all four keepers: `magic-team/contracts/magic-team.authority.keeper.contract.md`.
 - Unsure whether something is this skill's own call or needs `magic-coordinator`'s sign-off: default to relaying.
 - A task is actually about an application built on top of AE3, not the framework itself: hand off to that application's own owning specialist instead.
 - A package's purpose is unclear from its name alone: read it and verify directly before recording anything as a confirmed package-purpose note. Never guess.
-- Investigating the legacy source needs more than one shell command in a row: batch them in one `--console-start`/`--console-send` session rather than one call per command.
-- **`ws-myx.ae3-devel` edit boundary**: `util.repository-ae3`'s own workspace files (`project.inf`, `remotes-list-ae3.txt`, `MAGIC.md`, `skillset/keeper-ae3/*`) are directly editable in this workspace. The individual AE3 code-project checkouts under `ws-myx.ae3-devel/source/ae3/` (`ae3.api`, `ae3.sdk-lang.acm-tpl`, `ae3.sys.pkg.s4.lcl.bdbje`, etc.) are not — a real fix lands in the `/Volumes/workspace/myx` legacy checkout only, and the human-owner pulls it into `ws-myx.ae3-devel` himself.
-- After finishing any activity, file what was learned as a `reflection-*` item to this member's own inbox via `--member-inbox-reflection-upsert`.
-- Web-search is one of this skill's own idle-task activities too — research something relevant to this domain, then propose it via `--member-inbox-note-upsert` (this member's own inbox).
-- **Every repo/workspace-relevant finding MUST be written into that repo/workspace's own `MAGIC.md`, automatically, without waiting for permission** — same standing rule every team member follows (`magic-team.armed.md`). An AE3-specific finding never sits only in this member's own Domain-knowledge section — it goes to the touched repo's own `MAGIC.md` on either workspace side. On the `ws-myx.ae3-devel` side, a namespace-general finding goes to `util.repository-ae3/MAGIC.md`. `/Volumes/workspace/myx` has no single management repo of its own — it's a flat Eclipse-project-per-package tree (per this file's own Domain anchor) — so a namespace-general finding there has no single fallback `MAGIC.md` either; it goes to the most directly relevant project's own `MAGIC.md` instead.
-- `README.md`/`CLAUDE.md` in any AE3-namespace repo (including `/Volumes/workspace/myx`) are read-only reference material by default — read for orientation, never written to on this member's own initiative, per the same standing rule.
+- Investigating the legacy source needs more than one shell command in a row: batch them in one `BatchTools` call rather than one round per command.
+- **`ws-myx.ae3-devel` edit boundary**: `util.repository-ae3`'s own workspace files (`project.inf`, `remotes-list-ae3.txt`, `MAGIC.md`, `skillset/keeper-ae3/*`) are directly editable in this workspace. The individual AE3 code-project checkouts under `ws-myx.ae3-devel/source/ae3/` (`ae3.api`, `ae3.sdk-lang.acm-tpl`, `ae3.sys.pkg.s4.lcl.bdbje`, etc.) are not — a real fix lands in the `eclipse-ae3` legacy checkout only, and the human-owner pulls it into `ws-myx.ae3-devel` himself.
+- After finishing any activity, file what was learned as a `reflection-*` item to this member's own inbox via `--upsert-inbox-reflection`.
+- Web-search is one of this skill's own idle-task activities too — research something relevant to this domain, then propose it via `--upsert-inbox-note` (this member's own inbox).
+- **Every repo/workspace-relevant finding MUST be written into that repo/workspace's own `MAGIC.md`, automatically, without waiting for permission** — same standing rule every team member follows (`magic-team.armed.md`). An AE3-specific finding never sits only in this member's own Domain-knowledge section — it goes to the touched repo's own `MAGIC.md` on either workspace side. On the `ws-myx.ae3-devel` side, a namespace-general finding goes to `util.repository-ae3/MAGIC.md`. `eclipse-ae3` has no single management repo of its own — it's a flat Eclipse-project-per-package tree (per this file's own Domain anchor) — so a namespace-general finding there has no single fallback `MAGIC.md` either; it goes to the most directly relevant project's own `MAGIC.md` instead.
+- `README.md`/`CLAUDE.md` in any AE3-namespace repo (including the `eclipse-ae3` place) are read-only reference material by default — read for orientation, never written to on this member's own initiative, per the same standing rule.
+- **Every path is shown in full, from `/`.** A relative part is not a path: give the whole absolute path, such as `/Volumes/workspace/myx/ae3.sdk/java/ru/myx/auth/AuthUtils.java`. This holds in every message, report, `MAGIC.md` entry and board item, not only in answer to a question.
+- **The `unit-test/claude-session-tests` folder is never named again, anywhere.** The human-owner forbade it outright and repeatedly. No message, report, document or `MAGIC.md` entry mentions it, whatever the topic. Tests belong to the `ae3.test` Eclipse project, carried by system and subsystem.
 - All team-authored content (this member's own Domain knowledge, `MAGIC.md` entries, reports) is written in English.
-- Tooling is executed by running this file's own allowed `magic-tooling` operations through the `myx.distro` MCP — never through any other execution path. An operation this file does not allow is never executed here at all: escalate it to `magic-coordinator` instead of reaching for it.
+- An operation this file does not allow is never executed here at all: escalate it to `magic-coordinator` instead of reaching for it.
 - MUST NOT execute any `DistroAgentsTools` operation not listed in this file's own Tooling section below, or in `magic-team`'s own shared/floor tooling.
-- `DistroAgentsTools.fn.sh` always executes via `mcp__myx_distro__execute` — never Bash, a Python/notebook execution tool, or any other tool that runs a process directly. Any non-mutating, read-only shell command executes the same way.
 
 # Domain knowledge: confirmed package-purpose notes
 
 - `ae3/util.repository-ae3` (`ws-myx.ae3-devel`) — this namespace's own checkout-subset/sync-tooling repo (`util.repository-ae3.git`, org `A-E-3`), same role as `keeper-mel`'s own `util.repository-<namespace>` entry. Its checkout list also covers `myx/clean-java.*` and `lib/lib.*` — outside this keeper's own domain, per this file's own Domain anchor.
-- **Legacy AE3 builder** (`/Volumes/workspace/myx/ae3-devel-tools/`, this keeper's other workspace — a real, independent build system, not `myx.distro-*` tooling): `MAKE-AE3-DISTRO.xml`'s `make_sys_current` ant target increments a persistent counter in `build.properties` (`build.number`), writes it to `ae3-share/ae3-distro/common/version`, shells out to `make-ae3-distro.sh` to build `ae3-axiom` and tars it as `ae3-axiom.tbz`, then `sync`s compiled `bin/` output from an explicit, hardcoded list of Eclipse projects (`ae3.api`, `ae3.api.e4`, `ae3.sdk`, `ae3.sdk.e4`, `ae3.sys*`, the `clean-java.*` libs, several `pkg.l2.tgt.*`/`pkg.lib.*` modules — this legacy builder's own build-time dependency list, not a claim of ownership over the `clean-java.*` repos) into `ae3-share/ae3-distro/common/ae3-classes/`. `EXPORT-MAKE-ALL.xml`'s `make_all` target chains this together with `ae3-info/EXPORT-MAKE-JAVADOCS.xml`, then copies `ae3.hello-world`/`ae3.info` resources into `ae3-local-private/` — it references a further `EXPORT-MAKE-AE3-DISTRO.xml` that is not on disk (a dead reference).
+- **Legacy AE3 builder** (`eclipse-ae3:ae3-devel-tools/`, this keeper's other workspace — a real, independent build system, not `myx.distro-*` tooling): `MAKE-AE3-DISTRO.xml`'s `make_sys_current` ant target increments a persistent counter in `build.properties` (`build.number`), writes it to `ae3-share/ae3-distro/common/version`, shells out to `make-ae3-distro.sh` to build `ae3-axiom` and tars it as `ae3-axiom.tbz`, then `sync`s compiled `bin/` output from an explicit, hardcoded list of Eclipse projects (`ae3.api`, `ae3.api.e4`, `ae3.sdk`, `ae3.sdk.e4`, `ae3.sys*`, the `clean-java.*` libs, several `pkg.l2.tgt.*`/`pkg.lib.*` modules — this legacy builder's own build-time dependency list, not a claim of ownership over the `clean-java.*` repos) into `ae3-share/ae3-distro/common/ae3-classes/`. `EXPORT-MAKE-ALL.xml`'s `make_all` target chains this together with `ae3-info/EXPORT-MAKE-JAVADOCS.xml`, then copies `ae3.hello-world`/`ae3.info` resources into `ae3-local-private/` — it references a further `EXPORT-MAKE-AE3-DISTRO.xml` that is not on disk (a dead reference).
 
 A note in this section is grounded in source actually read, never inferred from a naming or taxonomy pattern, and it names which class or file carries the fact.
 
@@ -117,15 +118,21 @@ A note in this section is grounded in source actually read, never inferred from 
 - **Local-server boot mechanism**: `clean-boot`'s `boot.Main` (packaged as `acm-cvs/sys-current/boot.jar`) is the AE3 launcher — `path.public` defaults to the JVM's own cwd, `path.protected`/`path.private`/`path.shared` default to `~/acm.cm5/*`, all four independently overridable via same-named `-D` system properties (`ru.myx.ae3.properties.path.*`), the same override pattern `ae3.test`'s `TestAe3.java` uses for its own offline probe harness. The TCP listener is opened by `ae3.sys`'s own `ru.myx.ae3.transfer.nio` package (`SocketListenRecord`/`SocketListener`), driven by an `interfaces.xml` `<source><factory>ACCEPT</factory><host>.../<port>...</source>` block through the `Produce`-framework factory `FactoryTransferSocketListener` — not by anything in `ae3.sys.pkg.i3.web` itself, which only parses bytes once a connection already exists. A loopback-only local boot runs from an already-built axiom (`acm-cvs/sys-current`) plus compiled project `bin/` trees, no rebuild needed: `Host: ae3.local` (wired in the packaged axiom's `settings/web/hosts/ae3.local.json`) serves AE3's own built-in welcome page. A browser Accept header resolves identically to bare `*/*` — both raw `text/xml` with a client-side XSLT stylesheet PI (the dispatch-race). Runnable tooling: `unit-test/magic-tester/verify-ae3-web-dispatch.sh`.
 - **`WebContextXmlXhtml` dispatch-race handling** (full detail in `ae3.sys.pkg.i3.web/MAGIC.md` and `ae3.sys.pkg.l2.tgt.xml/MAGIC.md`): `WebContextType.createMatchingContext` dispatches in four tiers — explicit `___output` → URL extension → Accept-header content-type → `auto-detect` wildcard — with `xml.json`/`xhtml.json`/`html.json` at tier 3. A browser Accept header therefore resolves to plain `WebContextXml` at tier 3, before the tier-4 `WebContextXmlAutoDetect` wildcard. The tier-3 block (`WebContextType.java`, lines 88-110) substitutes, in the same `auto-detect` slot tier 4 would reach, a plain `WebContextXml` resolution — leaving `xml.json`, `WebContextXml.java`, `WebContextXmlAutoDetect.java`, and `WebContextXmlXhtml.java` untouched. It does so via `WebContextOutputRegistry.createByKeyword(AUTO_DETECT_SHORT_NAME, ..., false)`, the reflective-lookup idiom every other dispatch tier in that file uses — no new imports, no classpath change; a direct `new WebContextXmlAutoDetect` does not compile, since `ae3.sys.pkg.i3.web/.classpath` has no dependency on `ae3.sys.pkg.l2.tgt.xml`. `WebContextXmlXhtml`/`WebContextXmlAutoDetect` and their `xhtml.json`/`auto-detect.json` wiring are pre-existing infrastructure. The dispatch difference is visible locally only for `layout="xml"`+`xsl` content that isn't already final: `ae3.local`'s welcome-page reply is already `X-Debug-Origin: LAYOUT_FINAL` (passed through unchanged by both `WebContextXml` and `WebContextXmlAutoDetect`), and a plain 404 is `layout="message"`, not `"xml"`.
 - **Standalone `.tpl`-render harness — the minimal path, shorter than booting a full AE3 server** (`ae3.sdk-lang.acm-tpl`/`AcmTplLanguageImpl`): a plain Java harness renders an arbitrary `.tpl` file through `AcmTplLanguageImpl`/`ru.myx.ae3.eval.Evaluate` directly, without `ThreadBootACM.init()`/`ImplAE3.init()` (no network listeners, no VFS storage-backend mount, no other renderer plugins). Minimal dependency chain, in order: (1) set `ru.myx.ae3.properties.path.public` to a real axiom tree with a `resources/` folder (e.g. `acm-cvs/sys-current`) — required because `<%FINAL%>`'s runtime handler (`TagFINAL_EXIT`) triggers `ru.myx.ae3.act.Context`'s static init, which needs `Storage.PUBLIC`; `path.protected`/`path.private`/`path.shared` need only point at any existing writable directory; (2) touch `ru.myx.ae3.Engine` (e.g. `Engine.createGuid()`) *before* anything loads `AcmTplLanguageImpl`/`ru.myx.ae3.base.Base`, otherwise a circular static-init trap fires between `ImplementBase` and `ImplementEngine`/`Engine` (`ImplementBase.<clinit>` → `ImplementEngine.<clinit>` → `Engine.<clinit>` → `ImplementEngine.start()` → back into `ImplementBase.implementInitialize()` while `OBJECT_FACTORY` is still null → `NullPointerException`); the full boot avoids this only because `ThreadBootACM`'s hardcoded `initClass(...)` sequence touches classes in a safe order; (3) `Evaluate.registerLanguage(AcmTplLanguageImpl.INSTANCE)` — not auto-registered by `Evaluate`'s own static init (which registers only `EVALUATE_LANGUAGE_IMPL` and `AcmEcmaLanguageImpl`); the full boot does this via `ru.myx.renderer.tpl.Main.main()` as part of package/plugin loading; (4) `Exec.createProcess(null, "...")` for a root `ExecProcess`; (5) `Evaluate.compileProgram(AcmTplLanguageImpl.INSTANCE, "<identity>", <source>)` → `ProgramPart`; (6) `prepared.callNE0(ctx, BaseObject.UNDEFINED)` → the rendered `ru.myx.ae3.answer.ReplyStringOptionalBinary`. Runtime classpath: `ae3.sdk`/`ae3.api`/`ae3.sys`/`acm-base-api`/`clean-java.{util,io,e5,crypto}` `bin/` plus `ae3.sdk-lang.acm-tpl`'s own classes recompiled with `acm-base-api` added (see `ae3.sdk-lang.acm-tpl/MAGIC.md`'s own classpath-gap entry) — no external libraries. This is the preferred shortest path for rendering one `.tpl` file's output; the full-server path is the right tool whenever more than the compile/execute mechanism is under test (real HTTP dispatch, skin-assignment resolution, etc.).
-- **EGit Team-provider connection recovery**: a project with a valid `.git` directory but no Team-provider link — no Share/Disconnect in the Team menu, no `[repo branch]` decoration — is a stuck EGit auto-share state, not a broken checkout; EGit's auto-share-on-import never re-fires for an already-imported project. It is not an AE3-specific mechanism — it holds for `ae3.*`/`ae3-*` and `acm-*` projects alike. The fix — packaging EGit's own `ConnectProviderOperation` as a minimal OSGi bundle, registered for one headless run via `bundles.info` — is recorded jointly with `keeper-acm` in `/Volumes/workspace/myx/MAGIC.md`'s Eclipse workspace metadata section.
+- **EGit Team-provider connection recovery**: a project with a valid `.git` directory but no Team-provider link — no Share/Disconnect in the Team menu, no `[repo branch]` decoration — is a stuck EGit auto-share state, not a broken checkout; EGit's auto-share-on-import never re-fires for an already-imported project. It is not an AE3-specific mechanism — it holds for `ae3.*`/`ae3-*` and `acm-*` projects alike. The fix — packaging EGit's own `ConnectProviderOperation` as a minimal OSGi bundle, registered for one headless run via `bundles.info` — is recorded jointly with `keeper-acm` in `eclipse-ae3:MAGIC.md`'s Eclipse workspace metadata section.
 - **`{layout:"final", type:<content-type>}` is a generic, cross-cutting reply-object sentinel, not XML-specific.** Defined in `ae3.sdk`'s `resources/skin/skin-standard/layouts/Xml.jslt` and sibling `Html.jslt`, and `FormatSAPI.java`'s javadoc: the shape means "already fully rendered — serve `content` raw, using `type` directly as the HTTP Content-Type, no further transformation," produced symmetrically by multiple standard-skin `LayoutDefinition`s (at minimum for `text/xml` and `text/html`). A dispatch class recognizing this sentinel for one content-type does not guarantee it handles others — `WebContextXml.getResultReply()` (`ae3.sys.pkg.l2.tgt.xml`) branches on any non-empty `type` generically, not on a hardcoded `"text/xml"` check. Debugging "why doesn't this reply get served correctly": check whether the reply matches this shape and whether the consuming dispatch class actually branches on it. Full detail: `ae3.sys.pkg.l2.tgt.xml`'s own `MAGIC.md`, not duplicated here.
 
 ## Idle-Tasks
 
 Scheduling policy for this member's idle-run routines: which routine may fire during duty time when no active board item is assigned to run, its relative selection `weight`, its `min-interval` (wall-clock "not more frequent than" cap, measured from that routine's last `processed/` run), and the `scope` it runs against. The `## daily-idle-task` procedure selects from this list — weighted-random among eligible entries — never from a directory listing; a routine not listed here is not idle-run.
 
-- `keeper-ae3.file-comment-gap.routine` — weight: 1, min-interval: 24h, scope: AE3 classes in the `/Volumes/workspace/myx` legacy checkout
-- `keeper-ae3.readme-gap.routine` — weight: 1, min-interval: 24h, scope: `ae3.*`/`ae3-*` Eclipse projects and notable sub-packages within them
+- `magic-team.file-comment-gap.routine` — weight: 1, min-interval: 24h, scope: AE3 classes in the `eclipse-ae3` legacy checkout
+  - covers: the class's specific reason for existing.
+  - lands-in: the `eclipse-ae3` legacy checkout only, never an `ae3/*` code-project checkout under `ws-myx.ae3-devel`, per this file's edit boundary.
+  - rules: it neither advances nor blocks the separate, longer-term legacy-migration effort outside this keeper's scope; it is purely about the legibility of the current, still-live tree.
+- `magic-team.readme-gap.routine` — weight: 1, min-interval: 24h, scope: `ae3.*`/`ae3-*` Eclipse projects and notable sub-packages within them
+  - outcome: write.
+  - covers: which part of the `sys.pkg.*` taxonomy the package fills, and what it depends on or is depended on by.
+  - lands-in: the `eclipse-ae3` legacy checkout only, never an `ae3/*` code-project checkout under `ws-myx.ae3-devel`, per this file's edit boundary.
 - `keeper-ae3.package-catalog-gap.routine` — weight: 1, min-interval: 24h, scope: package-taxonomy branches grounded in source actually read, recorded in this file's own `# Domain knowledge: confirmed package-purpose notes` section
 - universal research-own-duties activity (web-search per `magic-team/magic-team.armed.md`'s "Duties: three kinds, plus reflection") — weight: 1, min-interval: 24h, scope: this member's own AE3-framework domain — the always-available "one more candidate," not a `.routine.md` file
 
@@ -133,15 +140,15 @@ Scheduling policy for this member's idle-run routines: which routine may fire du
 
 Every `magic-tooling` operation this team-member uses. Full syntax and behavior here. Steps use its name only.
 
-**Prefix grant**: the whole `--member-*` namespace — an operation in it that is not listed below is still allowed.
+**Who may run what**: every operation of the tool files except the coordinator's own — an operation not listed below is still allowed.
 
-## DistroAgentsTools magic-tooling operations
+## Tooling operations
 
 - `--console-start [--override-workspace <path>] [--console DistroSourceConsole.sh|DistroDeployConsole.sh] [--ttl <seconds>]`
 - `--console-send <channel> [-- <command...>]`
-- `--member-upsert-member-inquiry <member> <item-filename> [--from-file <path>]`
-- `--member-inbox-reflection-upsert <keeper-ae3> <item-filename> [--from-file <path>|--edit-patch-from-stdin]`
-- `--member-inbox-note-upsert <keeper-ae3> <item-filename> [--from-file <path>|--edit-patch-from-stdin]`
+- `--upsert-inbox-inquiry <item-filename> [--from-file <path>]`
+- `--upsert-inbox-reflection <item-filename> [--from-file <path>|--edit-patch-from-stdin]`
+- `--upsert-inbox-note <item-filename> [--from-file <path>|--edit-patch-from-stdin]`
 
 ## `--console-start` Operation Reference
 
@@ -151,17 +158,17 @@ Every `magic-tooling` operation this team-member uses. Full syntax and behavior 
 
 `DistroAgentsTools.fn.sh --console-send <channel> [-- <command...>]` — sends one command line into an open channel's FIFO. With `-- <command...>`, that argument list (joined with spaces) is sent; with no command given, stdin is read and piped through as-is (multi-line/heredocs work). Command-only, not a data-transport — the joined command is written raw and unquoted, exactly like typing at an interactive shell prompt. Never pass free text with shell metacharacters as the trailing argument.
 
-## `--member-upsert-member-inquiry` Operation Reference
+## `--upsert-inbox-inquiry` Operation Reference
 
-`DistroAgentsTools.fn.sh --member-upsert-member-inquiry <member> <item-filename> [--from-file <path>]` — passes an inquiry to `<member>`'s own inbox. Same mechanics as `--member-inbox-note-upsert`; used when handing a question to another member rather than filing it for later.
+`DistroAgentsItems.fn.sh --upsert-inbox-inquiry <item-filename> [--from-file <path>]` — passes an inquiry to `<member>`'s own inbox. Same mechanics as `--upsert-inbox-note`; used when handing a question to another member rather than filing it for later.
 
-## `--member-inbox-reflection-upsert` Operation Reference
+## `--upsert-inbox-reflection` Operation Reference
 
-`DistroAgentsTools.fn.sh --member-inbox-reflection-upsert <member> <item-filename> [--from-file <path>|--edit-patch-from-stdin]` — same mechanics as `--member-inbox-note-upsert`, used specifically for `reflection-*` items (frontmatter + "# Reflection: ..." + "## What happened"/"## Why this is worth keeping"). `<item-filename>` conventionally contains `reflection-` in its slug.
+`DistroAgentsItems.fn.sh --upsert-inbox-reflection <item-filename> [--from-file <path>|--edit-patch-from-stdin]` — same mechanics as `--upsert-inbox-note`, used specifically for `reflection-*` items (frontmatter + "# Reflection: ..." + "## What happened"/"## Why this is worth keeping"). `<item-filename>` conventionally contains `reflection-` in its slug.
 
-## `--member-inbox-note-upsert` Operation Reference
+## `--upsert-inbox-note` Operation Reference
 
-`DistroAgentsTools.fn.sh --member-inbox-note-upsert <member> <item-filename> [--from-file <path>|--edit-patch-from-stdin]` — writes (creates or overwrites) a note into `<member>`'s own inbox. Content via stdin by default, or `--from-file <path>`. `<item-filename>` is a bare filename, no path separators.
+`DistroAgentsItems.fn.sh --upsert-inbox-note <item-filename> [--from-file <path>|--edit-patch-from-stdin]` — writes (creates or overwrites) a note into `<member>`'s own inbox. Content via stdin by default, or `--from-file <path>`. `<item-filename>` is a bare filename, no path separators.
 
 # Maintainer Notes
 
@@ -188,11 +195,11 @@ Used to check this file's own definitions against its own goals when it is updat
 ### Reference
 
 - `keeper-ae3.basic.md` — identity.
-- `keeper-ae3.file-comment-gap.routine`, `keeper-ae3.readme-gap.routine`, `keeper-ae3.package-catalog-gap.routine` — the three idle-run routine candidates; their scheduling policy is this file's own `## Idle-Tasks` section.
+- `magic-team.file-comment-gap.routine`, `magic-team.readme-gap.routine`, `keeper-ae3.package-catalog-gap.routine` — the three idle-run routine candidates, the first two shared with other keepers; their scheduling policy is this file's own `## Idle-Tasks` section.
 - `magic-developer` — `reference/java.md`, general Java language mechanics this skill is a heavy user of.
-- `magic-team.authority.keeper.contract.md` — the shared "keepers relay, don't decide independently" policy.
+- `magic-team/contracts/magic-team.authority.keeper.contract.md` — the shared "keepers relay, don't decide independently" policy.
 - `magic-team/magic-team.armed.md` — the `MAGIC.md`-routing rule (this file's own `ws-myx.ae3-devel`-side Domain-anchor entry and `util.repository-ae3/MAGIC.md` both trace back to it), English-only rule, board/inbox model.
-- `keeper-acm` — the `acm-*`-side counterpart sharing this keeper's own `/Volumes/workspace/myx` legacy workspace; `keeper-acm` already cites this file as "the AE3-repo boundary this skill respects from the other side," reciprocated here.
+- `keeper-acm` — the `acm-*`-side counterpart sharing this keeper's own legacy Eclipse workspace (`eclipse-ae3`, which keeper-acm names `eclipse-acm`); `keeper-acm` already cites this file as "the AE3-repo boundary this skill respects from the other side," reciprocated here.
 
 #### Not indexed here (deliberately excluded)
 
