@@ -46,6 +46,7 @@ async "ae3/ae3.pkg.net.ndm.client/"				"git@github.com:A-E-3/ae3.pkg.net.ndm.cli
 
 
 async "ae3/ae3.dev.tgt.xml"						"git@github.com:A-E-3/ae3.dev.tgt.xml.git"
+async "ae3/ae3.test/"			"git@github.com:A-E-3/ae3.test.git"
 
 wait
 
